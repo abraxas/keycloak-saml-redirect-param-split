@@ -1,0 +1,16 @@
+name: kc-h04-sredir
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.8.1
+    command: ["start-dev"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: bootstrap-pass
+      KC_HTTP_ENABLED: "true"
+      KC_HOSTNAME_STRICT: "false"
+      QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH: "65536"
+      QUARKUS_HTTP_LIMITS_MAX_HEADER_SIZE: "65536"
+    ports:
+      - "127.0.0.1:18084:8080"
+    restart: "no"
